@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#1C398E"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/btnBackStatus"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_arrow_back"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status Laporan"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/btnBackStatus"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnMenuStatus"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_more"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Summary bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="14dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/tvTotalLaporan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0 Laporan Total"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#1D293D" />
+
+        <TextView
+            android:id="@+id/tvDiprosesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 Diproses"
+            android:textSize="12sp"
+            android:textColor="#D97706"
+            android:background="@drawable/bg_badge_yellow"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tvSelesaiCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 Selesai"
+            android:textSize="12sp"
+            android:textColor="#059669"
+            android:background="@drawable/bg_badge_green"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Main scrollable content (Non-sticky footer!) -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Frame containing RecyclerView and Empty State -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewLaporan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+                <!-- Empty state overlay -->
+                <LinearLayout
+                    android:id="@+id/emptyStateLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="350dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="32dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_document_empty"
+                        app:tint="#94A3B8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Belum Ada Laporan"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#1D293D"
+                        android:layout_marginTop="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Laporan yang Anda buat akan muncul di sini."
+                        android:textSize="13sp"
+                        android:textColor="#94A3B8"
+                        android:textAlignment="center"
+                        android:layout_marginTop="6dp" />
+
+                    <!-- Button inside empty state to create new report when list is empty -->
+                    <Button
+                        android:id="@+id/btnBuatLaporanBaruEmpty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:text="Buat Laporan Baru"
+                        android:backgroundTint="#1C398E"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:layout_marginTop="20dp"
+                        android:paddingHorizontal="24dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Bottom: footer (Moved inside scroll view, non-sticky!) -->
+            <LinearLayout
+                android:id="@+id/footerStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="24dp"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="60dp"> <!-- Generous bottom margin gap -->
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_document_empty"
+                    app:tint="#CBD5E1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tidak ada laporan lainnya"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#64748B"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Semua laporan Anda sudah ditampilkan"
+                    android:textSize="11sp"
+                    android:textColor="#94A3B8"
+                    android:layout_marginTop="2dp" />
+
+                <Button
+                    android:id="@+id/btnBuatLaporanBaru"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:text="Buat Laporan Baru"
+                    android:backgroundTint="#1C398E"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:layout_marginTop="12dp"
+                    android:paddingHorizontal="24dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

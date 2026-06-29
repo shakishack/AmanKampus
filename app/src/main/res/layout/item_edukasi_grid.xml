@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Cover Image -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp">
+
+            <ImageView
+                android:id="@+id/ivEdukasiCoverGrid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_stop_sa"
+                android:scaleType="centerCrop" />
+
+            <!-- Duration small badge -->
+            <TextView
+                android:id="@+id/tvDurasiEdukasiGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_badge_yellow"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="5m"
+                android:textColor="#A16207"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <!-- details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tvTipeEdukasiGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Artikel"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:textColor="#1C398E"
+                android:background="@drawable/bg_tag"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvJudulEdukasiGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Judul artikel"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#1D293D"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.1" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

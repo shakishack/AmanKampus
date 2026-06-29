@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+        <ImageView
+            android:id="@+id/btnBackTerkirim"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_arrow_back" />
+        <!-- HAPUS app:tint di sini supaya warna asli icon terjaga -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lapor Kejadian"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Icon centang: JANGAN pakai app:tint kalau PNG sudah ada warnanya -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_check_circle"
+            android:layout_marginTop="32dp"/>
+        <!-- Kalau ic_check_circle kamu adalah vector drawable polos,
+             baru boleh pakai tint. Tapi kalau PNG dari Figma yang sudah
+             ada centang putihnya, hapus tint supaya centangnya kelihatan. -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Laporan Terkirim"
+            android:textColor="#1D293D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Laporan Anda telah diterima dan akan segera ditangani."
+            android:textColor="@color/colorTextGray"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Card: Lacak Status (dengan icon di kiri seperti Figma) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLacakStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <!-- Icon dokumen (sesuaikan dengan drawable yang kamu punya) -->
+                <ImageView
+                    android:layout_width="63dp"
+                    android:layout_height="69dp"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_document" />
+                <!-- Buat bg_icon_purple: shape oval/rounded dengan warna #EDE9FE -->
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lacak Status"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#1D293D"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pantau perkembangan laporan di menu Status Laporan"
+                        android:textSize="12sp"
+                        android:textColor="@color/colorTextGray"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Nomor ID dengan background abu muda dan teks biru -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#F0F4FF">
+
+            <TextView
+                android:id="@+id/tvNomorIdTerkirim"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Nomor ID: #SR-2026-0000"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+        </androidx.cardview.widget.CardView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Tombol utama -->
+        <Button
+            android:id="@+id/btnKembaliBeranda"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Kembali ke Beranda"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <!-- Tombol sekunder dengan border -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLaporBaru"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Buat Laporan Baru"
+            android:textColor="#314158"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            app:backgroundTint="#FFFFFF"
+            app:strokeColor="#E0E0E0"
+            app:strokeWidth="1dp"
+            app:cornerRadius="8dp"/>
+
+    </LinearLayout>
+</LinearLayout>

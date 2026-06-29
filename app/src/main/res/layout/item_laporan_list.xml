@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:gravity="center_vertical">
+
+        <!-- Left: info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvKategoriList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kategori"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#1D293D" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tvNomorIdList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#LAP-0000"
+                    android:textSize="12sp"
+                    android:textColor="#64748B" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" | "
+                    android:textSize="12sp"
+                    android:textColor="#94A3B8" />
+
+                <TextView
+                    android:id="@+id/tvTanggalList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01 JAN 2026"
+                    android:textSize="12sp"
+                    android:textColor="#64748B" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Status badge -->
+        <TextView
+            android:id="@+id/tvStatusList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terkirim"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_tag" />
+
+        <!-- Delete button -->
+        <ImageView
+            android:id="@+id/btnHapusList"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@android:drawable/ic_menu_delete"
+            android:tint="#EF4444"
+            android:padding="2dp"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

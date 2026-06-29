@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#1C398E"
+        android:paddingHorizontal="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beranda"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnMenuBeranda"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_more"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- Greeting + Notif -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="24dp">
+
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Halo, Andrew!"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E293B"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ivNotif"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tetap aman dan nyaman selama di kampus ya."
+                    android:textColor="#475569"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ivNotif"
+                    app:layout_constraintTop_toBottomOf="@id/tvGreeting" />
+
+                <ImageView
+                    android:id="@+id/ivNotif"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_notif"
+                    app:tint="#1C398E"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- SOS Button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:id="@+id/btnSos"
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:src="@drawable/ic_sos_button"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/tvSosStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tahan 3 detik untuk aktivasi"
+                    android:textColor="#64748B"
+                    android:textSize="14sp"
+                    android:layout_marginTop="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Aktivitas Terbaru -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_outline_card"
+                android:padding="16dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tvAktivitasLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Aktivitas Terbaru"
+                    android:textColor="#1E293B"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tvBadgeStatus"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvBadgeStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_yellow"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="Sedang Diproses"
+                    android:textColor="#A16207"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Laporan terakhir: #LAP-2026-0142"
+                    android:textColor="#64748B"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAktivitasLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Label Menu Utama -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menu Utama"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1C398E"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Grid Container (ID: layoutMenuGrid) -->
+            <LinearLayout
+                android:id="@+id/layoutMenuGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:visibility="visible">
+
+                <!-- Row 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="12dp">
+
+                    <!-- Lapor Kejadian -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuLapor"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="#F0F7FF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:src="@drawable/ic_lapor" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lapor Kejadian"
+                                android:textColor="#1E293B"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:textAlignment="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Status Laporan -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuStatus"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="#FAF0FF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="16dp">
+
+                                <ImageView
+                                    android:layout_width="56dp"
+                                    android:layout_height="56dp"
+                                    android:src="@drawable/ic_status" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Status Laporan"
+                                    android:textColor="#1E293B"
+                                    android:textStyle="bold"
+                                    android:textSize="14sp"
+                                    android:layout_marginTop="10dp"
+                                    android:textAlignment="center" />
+                            </LinearLayout>
+
+                            <!-- Badge count -->
+                            <TextView
+                                android:id="@+id/tvBadge"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:background="@drawable/ic_notif_laporan"
+                                android:backgroundTint="#3B82F6"
+                                android:text="1"
+                                android:textColor="#FFF"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:layout_gravity="top|end"
+                                android:layout_marginTop="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:visibility="gone" />
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- Row 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <!-- Edukasi Keamanan -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuEdukasi"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="#FFF7ED"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:src="@drawable/ic_edukasi" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Edukasi Keamanan"
+                                android:textColor="#1E293B"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:textAlignment="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- FAQ -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/menuFaq"
+                        android:layout_width="0dp"
+                        android:layout_height="140dp"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="#EAFDF3"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:src="@drawable/ic_faq_logo" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FAQ"
+                                android:textColor="#1E293B"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="10dp"
+                                android:textAlignment="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Card/List Container (ID: layoutMenuCard) -->
+            <LinearLayout
+                android:id="@+id/layoutMenuCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Menu: Lapor Kejadian -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/menuLaporCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="#F0F7FF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="20dp">
+
+                        <ImageView
+                            android:id="@+id/imgLapor"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_lapor"
+                            android:translationY="12dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvLaporTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Lapor Kejadian"
+                            android:textColor="#1E293B"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="2dp"
+                            app:layout_constraintStart_toEndOf="@id/imgLapor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/tvLaporSub"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/tvLaporSub"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Buat laporan baru"
+                            android:textColor="#475569"
+                            android:textSize="12sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="2dp"
+                            app:layout_constraintStart_toEndOf="@id/imgLapor"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvLaporTitle"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Menu: Status Laporan -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/menuStatusCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="#FAF0FF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="20dp">
+
+                        <ImageView
+                            android:id="@+id/imgStatus"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:src="@drawable/ic_status"
+                            android:scaleType="fitCenter"
+                            android:translationY="12dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvStatusTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Status Laporan"
+                            android:textColor="#1E293B"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="2dp"
+                            app:layout_constraintStart_toEndOf="@id/imgStatus"
+                            app:layout_constraintEnd_toStartOf="@id/tvBadgeCard"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/tvStatusSub"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/tvStatusSub"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Lacak status laporan Anda"
+                            android:textColor="#475569"
+                            android:textSize="12sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="2dp"
+                            app:layout_constraintStart_toEndOf="@id/imgStatus"
+                            app:layout_constraintEnd_toStartOf="@id/tvBadgeCard"
+                            app:layout_constraintTop_toBottomOf="@id/tvStatusTitle"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvBadgeCard"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_notif_laporan"
+                            android:backgroundTint="#3B82F6"
+                            android:text="1"
+                            android:textColor="#FFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:visibility="gone"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Menu: Edukasi Keamanan -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/menuEdukasiCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="12dp"
+                    app:cardBackgroundColor="#FFF7ED"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="20dp">
+
+                        <ImageView
+                            android:id="@+id/imgEdukasi"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:src="@drawable/ic_edukasi"
+                            android:scaleType="fitCenter"
+                            android:translationY="12dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvEdukasiTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Edukasi Keamanan"
+                            android:textColor="#1E293B"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="2dp"
+                            app:layout_constraintStart_toEndOf="@id/imgEdukasi"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/tvEdukasiSub"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/tvEdukasiSub"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Panduan keamanan Anda"
+                            android:textColor="#475569"
+                            android:textSize="12sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="2dp"
+                            app:layout_constraintStart_toEndOf="@id/imgEdukasi"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvEdukasiTitle"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Menu: FAQ -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/menuFaqCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="24dp"
+                    app:cardBackgroundColor="#EAFDF3"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="20dp">
+
+                        <ImageView
+                            android:id="@+id/imgFaqCard"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:src="@drawable/ic_faq_logo"
+                            android:scaleType="fitCenter"
+                            android:translationY="12dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvFaqTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="FAQ"
+                            android:textColor="#1E293B"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="2dp"
+                            app:layout_constraintStart_toEndOf="@id/imgFaqCard"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/tvFaqSub"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/tvFaqSub"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tanya jawab seputar keamanan"
+                            android:textColor="#475569"
+                            android:textSize="12sp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="2dp"
+                            app:layout_constraintStart_toEndOf="@id/imgFaqCard"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvFaqTitle"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
