@@ -212,11 +212,13 @@
                             android:focusable="true"
                             android:layout_marginEnd="6dp">
                             <ImageView
+                                android:id="@+id/ivIconCamera"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:src="@drawable/ic_camera"
                                 app:tint="#45556C"/>
                             <TextView
+                                android:id="@+id/tvLabelCamera"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Camera"
@@ -237,11 +239,13 @@
                             android:focusable="true"
                             android:layout_marginHorizontal="6dp">
                             <ImageView
+                                android:id="@+id/ivIconAudio"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:src="@drawable/ic_mic"
                                 app:tint="#45556C"/>
                             <TextView
+                                android:id="@+id/tvLabelAudio"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Audio"
@@ -262,11 +266,13 @@
                             android:focusable="true"
                             android:layout_marginStart="6dp">
                             <ImageView
+                                android:id="@+id/ivIconImage"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:src="@drawable/ic_image"
                                 app:tint="#45556C"/>
                             <TextView
+                                android:id="@+id/tvLabelImage"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Image"

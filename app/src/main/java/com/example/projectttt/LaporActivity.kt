@@ -12,17 +12,72 @@ import java.util.*
 
 class LaporActivity : AppCompatActivity() {
 
+    private val pickImageLauncher = registerForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.GetContent()
+    ) { uri ->
+        if (uri != null) {
+            Toast.makeText(this, "Bukti gambar berhasil diunggah!", Toast.LENGTH_SHORT).show()
+            val btnUploadImage = findViewById<LinearLayout>(R.id.btnUploadImage)
+            btnUploadImage.setBackgroundResource(R.drawable.bg_badge_green)
+            btnUploadImage.findViewById<ImageView>(R.id.ivIconImage)?.setColorFilter(
+                android.graphics.Color.parseColor("#059669")
+            )
+            btnUploadImage.findViewById<TextView>(R.id.tvLabelImage)?.apply {
+                text = "Gambar Terpilih"
+                setTextColor(android.graphics.Color.parseColor("#059669"))
+            }
+        }
+    }
+
+    private val pickAudioLauncher = registerForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.GetContent()
+    ) { uri ->
+        if (uri != null) {
+            Toast.makeText(this, "Bukti audio berhasil diunggah!", Toast.LENGTH_SHORT).show()
+            val btnUploadAudio = findViewById<LinearLayout>(R.id.btnUploadAudio)
+            btnUploadAudio.setBackgroundResource(R.drawable.bg_badge_green)
+            btnUploadAudio.findViewById<ImageView>(R.id.ivIconAudio)?.setColorFilter(
+                android.graphics.Color.parseColor("#059669")
+            )
+            btnUploadAudio.findViewById<TextView>(R.id.tvLabelAudio)?.apply {
+                text = "Audio Terpilih"
+                setTextColor(android.graphics.Color.parseColor("#059669"))
+            }
+        }
+    }
+
+    private val takePictureLauncher = registerForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.TakePicturePreview()
+    ) { bitmap ->
+        if (bitmap != null) {
+            Toast.makeText(this, "Bukti foto berhasil diunggah!", Toast.LENGTH_SHORT).show()
+            val btnUploadCamera = findViewById<LinearLayout>(R.id.btnUploadCamera)
+            btnUploadCamera.setBackgroundResource(R.drawable.bg_badge_green)
+            btnUploadCamera.findViewById<ImageView>(R.id.ivIconCamera)?.setColorFilter(
+                android.graphics.Color.parseColor("#059669")
+            )
+            btnUploadCamera.findViewById<TextView>(R.id.tvLabelCamera)?.apply {
+                text = "Foto Terpilih"
+                setTextColor(android.graphics.Color.parseColor("#059669"))
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lapor)
 
         val btnBack            = findViewById<ImageView>(R.id.btnBackLapor)
-        val spinnerContainer   = findViewById<android.widget.RelativeLayout>(R.id.spinnerKategoriContainer)
+        val spinnerContainer   = findViewById<RelativeLayout>(R.id.spinnerKategoriContainer)
         val tvSelectedKategori = findViewById<TextView>(R.id.tvSelectedKategori)
         val ivArrowKategori    = findViewById<ImageView>(R.id.ivArrowKategori)
         val etKronologi        = findViewById<EditText>(R.id.etKronologi)
         val switchAnonim       = findViewById<Switch>(R.id.switchAnonim)
         val btnKirim           = findViewById<Button>(R.id.btnKirimLaporan)
+
+        val btnUploadCamera    = findViewById<LinearLayout>(R.id.btnUploadCamera)
+        val btnUploadAudio     = findViewById<LinearLayout>(R.id.btnUploadAudio)
+        val btnUploadImage     = findViewById<LinearLayout>(R.id.btnUploadImage)
 
         btnBack.setOnClickListener { finish() }
 
@@ -67,6 +122,18 @@ class LaporActivity : AppCompatActivity() {
             popup.show()
         }
 
+        btnUploadCamera.setOnClickListener {
+            takePictureLauncher.launch(null)
+        }
+
+        btnUploadAudio.setOnClickListener {
+            pickAudioLauncher.launch("audio/*")
+        }
+
+        btnUploadImage.setOnClickListener {
+            pickImageLauncher.launch("image/*")
+        }
+
         btnKirim.setOnClickListener {
             val kronologi = etKronologi.text.toString().trim()
             val isAnonim  = switchAnonim.isChecked
@@ -96,7 +163,6 @@ class LaporActivity : AppCompatActivity() {
 
             LaporanDbHelper(this).insertLaporan(laporan)
 
-            // Broadcast → notifikasi
             NotifikasiReceiver.sendLaporanTerkirimBroadcast(this, nomorId)
 
             startActivity(
@@ -110,6 +176,6 @@ class LaporActivity : AppCompatActivity() {
     private fun generateNomorId(): String {
         val year   = Calendar.getInstance().get(Calendar.YEAR)
         val random = (1000..9999).random()
-        return "#SR-$year-$random"
+        return "SR-$year-$random"
     }
 }
